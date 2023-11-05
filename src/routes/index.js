@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('../config/passportAuth');
 const { isAuthenticated } = require('../middlewares/isAuthenticated');
+require('dotenv').config();
 
 
 router.get('/', (req, res) => {

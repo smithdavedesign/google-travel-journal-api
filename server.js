@@ -1,10 +1,8 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const session = require("express-session");
 const mainRoutes = require("./src/routes/index");
+const mapsRoutes = require("./src/routes/maps");
 const passport = require('./src/config/passportAuth'); // Import passport configuration
-require('dotenv').config();
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -20,12 +18,11 @@ const init = () => {
 
     app.use(passport.initialize());
     app.use(passport.session());
-
     app.use(express.json());
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
     
     app.use("/", mainRoutes);
+    app.use("/maps", mapsRoutes);
+
 
     app.listen(PORT, () => {
       console.log(`App listening on ${PORT}`);
