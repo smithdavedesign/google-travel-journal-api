@@ -3,6 +3,7 @@ const session = require("express-session");
 const mainRoutes = require("./src/routes/index");
 const mapsRoutes = require("./src/routes/maps");
 const passport = require('./src/config/passportAuth'); // Import passport configuration
+const userRoutes = require("./src/routes/userRoutes");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -22,7 +23,7 @@ const init = () => {
     
     app.use("/", mainRoutes);
     app.use("/maps", mapsRoutes);
-
+    app.use("/", userRoutes);
 
     app.listen(PORT, () => {
       console.log(`App listening on ${PORT}`);
