@@ -8,7 +8,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_OAUTH_CLIENT_ID,
       clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
-      callbackURL: 'http://localhost:5000/auth/google/callback', // Update with your redirect URI
+      callbackURL: 'https://test-postgres-app-5f475dd30d30.herokuapp.com/auth/google/callback', // Update with your redirect URI
     },
     (accessToken, refreshToken, profile, done) => {
       // Store user information in your database or session
